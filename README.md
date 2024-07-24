@@ -57,8 +57,11 @@ CREATE TABLE equipment (
     type varchar(255),
     description text
 );
-
 ```
+Файлы .jpg находятся в `static.images`. Данные в базе хранятся в следующем формате:
+
+![image](https://github.com/user-attachments/assets/afa60f0b-4c8c-4fae-a640-3e9a7977fd5c)
+
 ![image](https://github.com/user-attachments/assets/f923635d-2008-4d36-9d2d-eecb631dd3cc)
 ![image](https://github.com/user-attachments/assets/c3320d9e-5f33-4946-9432-ca2f2bf60e80)
 ![image](https://github.com/user-attachments/assets/52ad402f-79da-4164-b79e-39383afb26c6)
