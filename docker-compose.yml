@@ -1,15 +1,26 @@
-version: '3'
+version: '3.6'
 
 services:
-  postgres:
-    image: 'postgres:10'
-    container_name: 'java-postgres'
+  database:
+    image: 'postgres:16'
+    container_name: 'database'
+    volumes:
+      -  postgres_database:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
     environment:
-      - 'POSTGRES_USER='
-      - 'POSTGRES_PASSWORD='
-      - 'POSTGRES_DB='
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
+    command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
+    ports:
+      - 5432:5432
+
   app:
     build: /
     container_name: 'java-app'
     ports:
       - 8080:8080
+
+volumes:
+  postgres_database:
+    external: true
